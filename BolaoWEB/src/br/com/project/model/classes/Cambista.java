@@ -33,27 +33,28 @@ public class Cambista implements Serializable {
 	@IdentificaCampoPesquisa(campoConsulta =  "id_cambista", descricaoCampo = "Código")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_cambista", nullable = true)
+	@Column(name = "id_cambista", nullable = false)
 	private long id;
 	@IdentificaCampoPesquisa(campoConsulta =  "cpf", descricaoCampo = "Cpd")
-	@Column(nullable = true,unique = true)
+	@Column(nullable = false,unique = true)
 	private long cpf;
 	@IdentificaCampoPesquisa(campoConsulta =  "nome", descricaoCampo = "Nome do Cambista")
-	@Column(nullable = true,unique = true)
+	@Column(nullable = false,unique = true)
 	private String nome;
 	@IdentificaCampoPesquisa(campoConsulta = "whatsapp",descricaoCampo = "WhatsApp")
-	@Column(nullable = true,unique = true)
+	@Column(nullable = false,unique = true)
 	private int whatsapp;
 	@Basic
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "conta_bancaria", nullable=true)
-	@ForeignKey(name = "usuario_cambistafk")
-	private ContaBancaria conta;
-	@Basic
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "usuario", nullable=true)
+	@JoinColumn(name = "usuario", nullable=false)
 	@ForeignKey(name = "usuario_cambistafk")
 	private Usuario usuario;
+	
+	@Basic
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "conta_bancaria", nullable=false)
+	@ForeignKey(name = "conta_cambistafk")
+	private ContaBancaria conta;
 	
 	@Transient
 	private byte[] foto;

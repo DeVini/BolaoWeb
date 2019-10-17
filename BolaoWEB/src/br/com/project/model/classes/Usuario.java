@@ -34,17 +34,17 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_usuario")
 	private long id;
-	@Column(nullable = true )
+	@Column(nullable = false )
 	private String password;
 	@IdentificaCampoPesquisa(campoConsulta = "username", descricaoCampo = "Username", principal =  1)
-	@Column(nullable = true )
+	@Column(nullable = false )
 	private String username;
 	@IdentificaCampoPesquisa(campoConsulta = "acesso", descricaoCampo = "Permissão" )
-	@Column(nullable = true )
+	@Column(nullable = false )
 	@Enumerated(EnumType.STRING)
 	private TipoAcesso acesso;
 	@IdentificaCampoPesquisa(campoConsulta = "email", descricaoCampo = "Email")
-	@Column(nullable = true)
+	@Column(nullable = false )
 	private String email;
 	@Version
 	@Column(name = "versionNum")

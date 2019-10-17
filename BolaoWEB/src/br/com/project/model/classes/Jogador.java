@@ -34,22 +34,22 @@ public class Jogador implements Serializable {
 	@IdentificaCampoPesquisa(campoConsulta = "id_jogador",descricaoCampo = "Código")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_jogador", nullable = true)
+	@Column(name = "id_jogador", nullable = false)
 	private long id;
 	@IdentificaCampoPesquisa(campoConsulta = "nome",descricaoCampo = "Nome do Jogador", principal =  1)
-	@Column(nullable = true,unique = true)
+	@Column(nullable = false,unique = true)
 	private String nome;
 	@IdentificaCampoPesquisa(campoConsulta = "cpf",descricaoCampo = "CPF")
-	@Column(nullable = true,unique = true)
+	@Column(nullable = false,unique = true)
 	private long cpf;
 	@IdentificaCampoPesquisa(campoConsulta = "whatsapp",descricaoCampo = "WhatsApp")
-	@Column(nullable = true)
+	@Column(nullable = false )
 	private int whatsapp;
 	@Transient
 	private byte[] foto;
 	@Basic
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "usuario", nullable=true)
+	@JoinColumn(name = "usuario", nullable=false)
 	@ForeignKey(name = "usuario_jogadorfk")
 	private Usuario usuario;
 	

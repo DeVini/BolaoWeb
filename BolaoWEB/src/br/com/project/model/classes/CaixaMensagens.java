@@ -30,7 +30,7 @@ public class CaixaMensagens implements Serializable {
 	private long id;
 	@Basic
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "usuario", nullable = true)
+	@JoinColumn(name = "usuarios", nullable = false)
 	@ForeignKey(name = "remetente")
 	private Usuario remetente = new Usuario();
 	@Basic
@@ -38,7 +38,7 @@ public class CaixaMensagens implements Serializable {
 	@JoinColumn(name = "usuario", nullable = true)
 	@ForeignKey(name = "destinatario")
 	private Usuario destinatario = new Usuario();
-	@Column(nullable = true, length = 120)
+	@Column(nullable = false, length = 120)
 	private String texto;
 	@Version
 	@Column(name = "versionNum")

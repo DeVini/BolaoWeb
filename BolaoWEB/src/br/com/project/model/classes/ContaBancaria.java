@@ -28,13 +28,13 @@ public class ContaBancaria implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.AUTO)
-	@Column(name = "id_conta", nullable =  true)
+	@Column(name = "id_conta", nullable =  false)
 	private long id;
-	@Column(unique = true, nullable =  true)
+	@Column(unique = true, nullable =  false)
 	private int agencia;
-	@Column(unique = true, nullable =  true)
+	@Column(unique = true, nullable =  false)
 	private int conta;
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private String banco;
 	
 	@Version

@@ -34,16 +34,16 @@ public class Bolao implements Serializable
 	private long id;
 	@Basic
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "grupo", nullable=true)
+	@JoinColumn(name = "grupo", nullable=false)
 	@ForeignKey(name = "grupo_bolaofk")
 	private Grupo grupo;
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private Date dataEmissao;
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private Date dataExpiracao;
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private int rodada;
 	
 	@Version
